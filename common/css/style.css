@@ -1,0 +1,265 @@
+@charset "UTF-8";
+
+/* #region assets */
+*{margin: 0; padding: 0; box-sizing: border-box; font-size: 1rem; font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; user-select: none;}
+a{text-decoration: none !important; display: block; color: #000;}
+a, button, label{cursor: pointer; user-select: none;}
+input, textarea, select, button{outline: none !important; border: none; font-size: 0.9rem;}
+
+.m-0, .mx-0, .ml-0{margin-left: 0 !important;}
+.m-1, .mx-1, .ml-1{margin-left: 0.25rem !important;}
+.m-2, .mx-2, .ml-2{margin-left: 0.5rem !important;}
+.m-3, .mx-3, .ml-3{margin-left: 1rem !important;}
+.m-4, .mx-4, .ml-4{margin-left: 1.5rem !important;}
+.m-5, .mx-5, .ml-5{margin-left: 3rem !important;}
+
+.m-0, .mx-0, .mr-0{margin-right: 0 !important;}
+.m-1, .mx-1, .mr-1{margin-right: 0.25rem !important;}
+.m-2, .mx-2, .mr-2{margin-right: 0.5rem !important;}
+.m-3, .mx-3, .mr-3{margin-right: 1rem !important;}
+.m-4, .mx-4, .mr-4{margin-right: 1.5rem !important;}
+.m-5, .mx-5, .mr-5{margin-right: 3rem !important;}
+
+.m-0, .my-0, .mt-0{margin-top: 0 !important;}
+.m-1, .my-1, .mt-1{margin-top: 0.25rem !important;}
+.m-2, .my-2, .mt-2{margin-top: 0.5rem !important;}
+.m-3, .my-3, .mt-3{margin-top: 1rem !important;}
+.m-4, .my-4, .mt-4{margin-top: 1.5rem !important;}
+.m-5, .my-5, .mt-5{margin-top: 3rem !important;}
+
+.m-0, .my-0, .mb-0{margin-bottom: 0 !important;}
+.m-1, .my-1, .mb-1{margin-bottom: 0.25rem !important;}
+.m-2, .my-2, .mb-2{margin-bottom: 0.5rem !important;}
+.m-3, .my-3, .mb-3{margin-bottom: 1rem !important;}
+.m-4, .my-4, .mb-4{margin-bottom: 1.5rem !important;}
+.m-5, .my-5, .mb-5{margin-bottom: 3rem !important;}
+
+.p-0, .px-0, .pl-0{padding-left: 0 !important;}
+.p-1, .px-1, .pl-1{padding-left: 0.25rem !important;}
+.p-2, .px-2, .pl-2{padding-left: 0.5rem !important;}
+.p-3, .px-3, .pl-3{padding-left: 1rem !important;}
+.p-4, .px-4, .pl-4{padding-left: 1.5rem !important;}
+.p-5, .px-5, .pl-5{padding-left: 3rem !important;}
+
+.p-0, .px-0, .pr-0{padding-right: 0 !important;}
+.p-1, .px-1, .pr-1{padding-right: 0.25rem !important;}
+.p-2, .px-2, .pr-2{padding-right: 0.5rem !important;}
+.p-3, .px-3, .pr-3{padding-right: 1rem !important;}
+.p-4, .px-4, .pr-4{padding-right: 1.5rem !important;}
+.p-5, .px-5, .pr-5{padding-right: 3rem !important;}
+
+.p-0, .py-0, .pt-0{padding-top: 0 !important;}
+.p-1, .py-1, .pt-1{padding-top: 0.25rem !important;}
+.p-2, .py-2, .pt-2{padding-top: 0.5rem !important;}
+.p-3, .py-3, .pt-3{padding-top: 1rem !important;}
+.p-4, .py-4, .pt-4{padding-top: 1.5rem !important;}
+.p-5, .py-5, .pt-5{padding-top: 3rem !important;}
+
+.p-0, .py-0, .pb-0{padding-bottom: 0 !important;}
+.p-1, .py-1, .pb-1{padding-bottom: 0.25rem !important;}
+.p-2, .py-2, .pb-2{padding-bottom: 0.5rem !important;}
+.p-3, .py-3, .pb-3{padding-bottom: 1rem !important;}
+.p-4, .py-4, .pb-4{padding-bottom: 1.5rem !important;}
+.p-5, .py-5, .pb-5{padding-bottom: 3rem !important;}
+
+.fx-1{font-size: 1rem !important;}
+.fx-2{font-size: 1.2rem !important;}
+.fx-3{font-size: 1.4rem !important;}
+.fx-4{font-size: 1.6rem !important;}
+.fx-5{font-size: 1.8rem !important;}
+.fx-6{font-size: 2rem !important;}
+.fx-7{font-size: 2.2rem !important;}
+.fx-8{font-size: 2.4rem !important;}
+.fx-9{font-size: 2.6rem !important;}
+.fx-10{font-size: 2.8rem !important;}
+.fx-11{font-size: 3rem !important;}
+.fx-12{font-size: 3.2rem !important;}
+.fx-13{font-size: 3.4rem !important;}
+.fx-14{font-size: 3.6rem !important;}
+.fx-15{font-size: 3.8rem !important;}
+
+.fx-n1{font-size: 0.95rem !important;}
+.fx-n2{font-size: 0.9rem !important;}
+.fx-n3{font-size: 0.85rem !important;}
+.fx-n4{font-size: 0.8rem !important;}
+
+.flex-1{flex: 1;}
+.flex-2{flex: 2;}
+.flex-3{flex: 3;}
+.flex-4{flex: 4;}
+.flex-5{flex: 5;}
+
+.w-fit{width: fit-content;}
+.h-fit{height: fit-content;}
+.fit-cover{object-fit: cover; width: 100%; height: 100%;}
+.nowrap{white-space: nowrap;}
+.wordnormal{word-break: normal;}
+.wordwrap{word-break: keep-all;}
+.tran{transition: all .35s ease;}
+/* #endregion assets */
+
+/* #region utility css */
+body{
+    height: 100vh;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f9f1ff, #e0f7fa);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.5rem;
+    overflow: hidden;
+}
+
+.area{
+    padding: 2.5rem;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 1.3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow .35s ease;
+}
+
+.title{
+    padding-left: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-left-width: calc((1.2625rem + 0.75vw) * 0.1389);
+    border-left-style: solid;
+    border-left-color: #0d6efd;
+    font-size: calc(1.2rem + 0.6vw);
+    font-weight: bold;
+}
+/* #endregion utility class */
+
+/* #region information */
+.infoText:nth-of-type(1) p{
+    width: calc(100% / 3);
+    max-width: 100px;
+}
+/* #endregion information */
+
+/* #region camera */
+#video{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+#selectDevice{z-index: 9999;}
+/* #endregion camera */
+
+/* #region numbpad */
+.key{
+    width: calc((100% / 3) - (2rem / 3));
+    aspect-ratio: 1 / 1;
+    background-color: #fefefe;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    transition: all .1s ease;
+
+    box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.95), 
+                inset 2px 2px 4px rgba(0, 0, 0, 0.06), 
+                2px 2px 6px rgba(0, 0, 0, 0.08);
+}
+.key:active{
+    background-color: #f0f0f0;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1), 
+                inset -2px -2px 4px rgba(255, 255, 255, 0.75);
+    transform: translateY(1px);
+}
+
+.key:last-child{
+    background-color: #0d6efd;
+    color: #ffffff;
+    box-shadow: 0 3px 6px rgba(13, 110, 253, 0.28),
+                inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.key:last-child:active{
+    background-color: #0955d9;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.18),
+                inset -2px -2px 4px rgba(255, 255, 255, 0.06);
+    transform: translateY(1px);
+}
+/* #endregion numpad */
+
+/* #region numpad */
+.custom-input{
+    width: 100%;
+    padding: 11px 16px;
+    font-size: 24px;
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: border .2s ease, box-shadow .2s ease;
+}
+
+.custom-input.focus{
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25),
+                0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.group label{
+    left: 5%;
+    top: 0;
+    transform: translateY(-50%);
+    color: #888;
+    background: #fff;
+    cursor: default;
+}
+/* #endregion numpad */
+
+/* #region meal list */
+.badge{
+    color: #636363;
+    border: 1px solid #d2d2d2;
+    background-color: #f5f6f7;
+    padding: 0.5rem 0.75rem;
+}
+/* #endregion meal list */
+
+/* #region error alert */
+#errorAlert{
+    min-width: 700px;
+    width: 25%;
+    max-width: 1000px;
+    opacity: 0;
+    transform: translate(-50%, -40%);
+    transition: all .25s ease;
+    z-index: 99;
+}
+#errorAlert.show{
+    box-shadow: 0 0 0.5rem 0.3rem rgba(132, 32, 41, 0.5);
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+/* #endregion error alert */
+
+/* #region camera not found error alert */
+#cameraAlert{z-index: 999;}
+
+#cameraAlert p{
+  color: #222;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+/* #endregion camera not found error alert */
+
+/* #region grade */
+#entry span{color: #0d6efd;}
+
+#time{
+    position: absolute;
+    right: 2.5rem;
+    top: 2.5rem;
+    background-color: #fefefe;
+    box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.95), 
+                inset 2px 2px 4px rgba(0, 0, 0, 0.06), 
+                2px 2px 6px rgba(0, 0, 0, 0.08);    
+}
+/* #endregion grade */
