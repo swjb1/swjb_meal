@@ -133,15 +133,32 @@ export class Students{
         $($(".infoText")[2]).text(`${dept}`);
 
         const gradeColor = {
-            "1":   "rgba(255, 50, 70, 0.35)", 
-            "2": "rgba(75, 192, 120, 0.35)", 
-            "3":  "rgba(54, 162, 235, 0.35)"
+            "1":   "rgba(255, 50, 70, 0.6)", 
+            "2": "rgba(75, 192, 120, 0.6)", 
+            "3":  "rgba(54, 162, 235, 0.6)"
         };
         
-        $(".area").css("box-shadow", `0 0 14px 6px ${gradeColor[this.student.grade]}`)
+        $(".area").css("box-shadow", `0 0 1.5rem 0.5rem ${gradeColor[this.student.grade]}`)
     }
     
     static unload(){
+        $(".infoTexts").html(`
+            <div class="infoText ml-5 w-100 d-flex column-gap-1">
+                <p class="mb-0 fx-8 text-muted fw-semibold text-end">학년</p>
+                <p class="mb-0 fx-8 text-muted fw-semibold text-end">반</p>
+                <p class="mb-0 fx-8 text-muted fw-semibold text-end">번</p>
+            </div>
+
+            <div>
+                <p class="mb-1 fx-6 fw-semibold text-muted">이름</p>
+                <p class="infoText ml-5 mb-0 fx-15 fw-bold lh-sm"></p>
+            </div>
+
+            <div>
+                <p class="mb-1 fx-6 fw-semibold text-muted">학과</p>
+                <p class="infoText ml-5 mb-0 fx-10 fw-bold lh-sm"></p>
+            </div>
+        `)
         $(".area").css("box-shadow", "0 4px 12px rgba(0, 0, 0, 0.1)")
 
         this.student=null;
@@ -212,9 +229,13 @@ export class QRcode{
                 const data=JSON.parse(result.getText());
                 studentClass.student=studentClass.students.find(student=>student.grade===data.grade && student.class===data.class && student.number===data.number && student.name===data.name && student.birth===data.birth);
                 studentClass.validation();
-                // console.log(studentClass.student)
 
-                // studentClass.load();
+                if(studentClass.student) $(".line").addClass("success");
+                else $(".line").addClass("error");
+                setTimeout(()=>{
+                    $(".line").removeClass("success");
+                    $(".line").removeClass("error");
+                }, 2000);
             }
         });
     }
@@ -255,34 +276,37 @@ export class StudentNumber{
             if(!value) return;
 
             if(value!=="pop" && value!=="enter"){
-                if(this.inputNumber.length<5){
-                    this.inputNumber.push(Number(value));
+                if(this.inputNumber.length<4){
                     $("#studentId").addClass("focus");
                     $("#studentBirth").removeClass("focus");
                 }
                 else{
-                    this.inputBirth.push(Number(value))
                     $("#studentBirth").addClass("focus");
                     $("#studentId").removeClass("focus");
                 }
+
+                if(this.inputNumber.length<5) this.inputNumber.push(Number(value));
+                else this.inputBirth.push(Number(value));
+
                 this.inputNumber=this.inputNumber.slice(0, 5);
                 this.inputBirth=this.inputBirth.slice(0, 6);
             } else if(value==="pop"){
+                if(this.inputNumber.length && this.inputBirth.length) this.inputBirth.pop();
+                else if(this.inputNumber.length && !this.inputBirth.length) this.inputNumber.pop();
+
                 if(this.inputNumber.length && this.inputBirth.length){
-                    this.inputBirth.pop();
                     $("#studentBirth").addClass("focus");
                     $("#studentId").removeClass("focus");
                 }
                 else if(this.inputNumber.length && !this.inputBirth.length){
-                    this.inputNumber.pop();
                     $("#studentId").addClass("focus");
                     $("#studentBirth").removeClass("focus");
                 } else{
-                    $("#studentId").removeClass("focus");
+                    $("#studentId").addClass("focus");
                     $("#studentBirth").removeClass("focus");
                 }
             } else if(value==="enter"){
-                $("#studentId").removeClass("focus");
+                $("#studentId").addClass("focus");
                 $("#studentBirth").removeClass("focus");
 
                 if(studentClass.student) return;
@@ -324,7 +348,7 @@ export class Meal{
     load(){
         $("#meal").html(
             this.meal.map(value=>`
-                <div class="badge rounded-pill fx-3">${value}</div>
+                <div class="badge rounded-pill fx-2">${value}</div>
             `)
         )
     }

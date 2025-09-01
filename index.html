@@ -58,7 +58,7 @@
     </div>
     <!-- #endregion error alert -->
 
-    <header class="area py-4 d-flex justify-content-between align-items-center">
+    <header class="area py-4 d-flex justify-content-between align-items-center" style="height: 10%;">
         <div class="w-fit">
             <img src="./common/images/logo.png" alt="suwon information scince high school" class="d-block">
         </div>
@@ -66,15 +66,15 @@
         <p class="mb-0 fx-3 text-muted fw-bold"></p>
     </header>
 
-    <div class="w-100 flex-1">
+    <div class="w-100" style="height: 90%;"> 
         <div class="w-100 h-100 d-flex flex-column row-gap-4">
-            <div class="row h-fit">
-                <div class="col-5">
+            <div class="row" style="flex: 70; min-height: 0;">
+                <div class="col-5 h-100">
                     <div class="d-flex flex-column row-gap-4 h-100">
                         <div class="area h-100">
                             <p class="title">학생 정보</p>
 
-                            <div class="d-flex flex-column justify-content-start align-items-start row-gap-5">
+                            <div class="infoTexts d-flex flex-column justify-content-start align-items-start row-gap-5">
                                 <div class="infoText ml-5 w-100 d-flex column-gap-1">
                                     <p class="mb-0 fx-8 text-muted fw-semibold text-end">학년</p>
                                     <p class="mb-0 fx-8 text-muted fw-semibold text-end">반</p>
@@ -96,20 +96,34 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col h-100">
                     <div class="area h-100">
                         <p class="title">QR코드 인식</p>
+                        <div class="mb-2">
+                            <p class="mb-0 fx-2 fw-semibold text-danger">- 인식이 될 때까지 잠시 기다려주세요</p>
+                            <p class="mb-0 fx-2 fw-semibold">- 핸드폰일 경우 밝기를 높여주세요</p>
+                        </div>
 
-                        <video id="video" class="rounded-3 overflow-hidden tran"></video>
+                        <div class="w-100 d-flex justify-content-center align-items-center">
+                            <div class="videoWrap">
+                                <video id="video" class="rounded-3 overflow-hidden tran"></video>
+    
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="overlay"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col h-100">
                     <div class="area h-100">
                         <div class="mb-3 d-flex justify-content-center align-items-center column-gap-3">
                             <div class="group position-relative">
                                 <label for="studentId" class="px-1 fx-2 position-absolute">학번 5자리</label>
-                                <input type="text" id="studentId" class="custom-input fx-4" disabled>
+                                <input type="text" id="studentId" class="custom-input fx-4 focus" disabled>
                             </div>
                             
                             <div class="group position-relative">
@@ -140,7 +154,7 @@
                 </div>
             </div>
 
-            <div class="row flex-1">
+            <div class="row" style="flex: 30; min-height: 0;">
                 <div class="col-7">
                     <div class="area h-100">
                         <p class="title">오늘의 급식</p>
@@ -153,7 +167,7 @@
                     <div class="area h-100 position-relative">
                         <p class="title">입장 가능 학년</p>
 
-                        <p id="time" class="mb-2 fx-8 fw-bold rounded-3 shadow-sm w-fit px-3"></p>
+                        <p id="time" class="mb-2 fx-6 fw-bold rounded-3 shadow-sm w-fit px-3"></p>
                         <p id="entry" class="mb-0 fx-6 fw-semibold wordnormal"></p>
                     </div>
                 </div>
@@ -162,7 +176,7 @@
     </div>
 
     <script type="module">
-        import {QRcode, Students, StudentNumber, Meal, DateUtils} from "./common/js/script.js";
+        import {Students, QRcode, StudentNumber, Meal, DateUtils} from "./common/js/script.js";
         var students=new Students();
         var qrcode=new QRcode();
         var studentNumber=new StudentNumber();

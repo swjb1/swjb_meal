@@ -102,7 +102,8 @@ input, textarea, select, button{outline: none !important; border: none; font-siz
 body{
     height: 100vh;
     padding: 1.5rem;
-    background: linear-gradient(135deg, #f9f1ff, #e0f7fa);
+    /* background: linear-gradient(135deg, #f9f1ff, #e0f7fa); */
+    background-color: #f2f2f2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,7 +113,7 @@ body{
 }
 
 .area{
-    padding: 2.5rem;
+    padding: 2rem;
     width: 100%;
     background-color: #fff;
     border-radius: 1.3rem;
@@ -122,7 +123,7 @@ body{
 
 .title{
     padding-left: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     border-left-width: calc((1.2625rem + 0.75vw) * 0.1389);
     border-left-style: solid;
     border-left-color: #0d6efd;
@@ -139,11 +140,55 @@ body{
 /* #endregion information */
 
 /* #region camera */
+.videoWrap{
+    width: 90%;
+    aspect-ratio: 1 / 1;
+    /* height: 50%; */
+    border-radius: 1rem;
+    overflow: hidden;
+
+    position: relative;
+}
 #video{
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    /* width: 100%;
+    height: 100%;
+    object-fit: cover; */
 }
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    padding: calc(15% + 3px);
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    
+    background-color: rgba(0,0,0,0.6);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+.line{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    transition: border-color .35s ease;
+}
+.line:nth-of-type(1){left: 20%; top: 20%; border-left: 6px solid #fff; border-top: 6px solid #fff;}
+.line:nth-of-type(2){left: 80%; top: 20%; border-right: 6px solid #fff; border-top: 6px solid #fff;}
+.line:nth-of-type(3){left: 20%; top: 80%; border-left: 6px solid #fff; border-bottom: 6px solid #fff;}
+.line:nth-of-type(4){left: 80%; top: 80%; border-right: 6px solid #fff; border-bottom: 6px solid #fff;}
+.line.success{border-color: #0d6efd !important;}
+.line.error{border-color: #dc3545 !important;}
 
 #selectDevice{z-index: 9999;}
 /* #endregion camera */
@@ -255,8 +300,8 @@ body{
 
 #time{
     position: absolute;
-    right: 2.5rem;
-    top: 2.5rem;
+    right: 2rem;
+    top: 2rem;
     background-color: #fefefe;
     box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.95), 
                 inset 2px 2px 4px rgba(0, 0, 0, 0.06), 
